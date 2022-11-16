@@ -30,5 +30,14 @@ from sklearn.metrics import confusion_matrix
 print(confusion_matrix(y_test, y_pred))
 tn, fp, fn, tp = confusion_matrix(y_test,y_pred).ravel()
 
-Accuracy= (tn+tp)/(tn+tp+fp+fn)
-print(Accuracy)
+Accuracy= (tn+tp)*100/(tn+tp+fp+fn)
+print("Accuracy {:0.2f}%:".format(Accuracy))
+
+Precision = tp/(tp+fp)
+print(Precision)
+
+Recall = tp/(tp+fn)
+print(Recall)
+
+error = (fp+fn)/(tp+tn+fp+fn)
+print(error)
